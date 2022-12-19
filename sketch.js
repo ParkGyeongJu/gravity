@@ -8,9 +8,9 @@ function setup() {
 
 
 function draw() {
-  background(220);
 
-  let gravity = createVector(0, 0.1);
+
+  let gravity = createVector(0.03, 0.5);
   ball.addForce(gravity);
 
   ball.update();
@@ -21,8 +21,8 @@ function draw() {
 class Particle {
   constructor() {
     this.pos = createVector(width/2, height/2);
-    this.vel = createVector(0, 0);
-    this.acc = createVector(0, 0);
+    this.vel = createVector(0, 1);
+    this.acc = createVector(-3, 10);
 
     this.c = color(0);
     this.w = 50;
@@ -54,7 +54,8 @@ class Particle {
 
 
   show() {
+      background(this.pos.x/2,this.pos.y/2,100);
     fill(this.c);
-    ellipse(this.pos.x, this.pos.y, this.w, this.w);
+    rect(this.pos.x+10,this.pos.y-50,this.w/4, this.w*2);
   }
 }
